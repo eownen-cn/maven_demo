@@ -1,0 +1,106 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+	http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.denny.maven</groupId>
+	<artifactId>mvnweb01</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	
+	<!-- 全局站点 -->
+	<name>mvnweb01 Maven Webapp</name>
+	
+	<!-- 全局url -->
+	<url>https://www.imooc.com</url>
+	
+	<!-- 指定组织机构 -->
+	<organization>
+		<name>慕课网</name>
+		<url>https://www.imooc.com</url>
+	</organization>
+	
+	<!-- 开发人员列表 -->
+	<developers>
+		<developer>
+			<id>1001</id>
+			<name>张三</name>
+			<email>zhangsan@gmail.com</email>
+			<url>https://www.zhangsan.com</url>
+			<roles>
+				<role>clerk</role>
+			</roles>
+		</developer>
+		
+		<developer>
+			<id>1002</id>
+			<name>李四</name>
+			<email>lisi@gmail.com</email>
+			<url>https://www.lisi.com</url>
+			<roles>
+				<role>analyst</role>
+			</roles>
+		</developer>
+		
+		<developer>
+			<id>1003</id>
+			<name>王五</name>
+			<email>wangwu@gmail.com</email>
+			<url>https://www.wangwu.com</url>
+			<roles>
+				<role>president</role>
+			</roles>
+		</developer>
+	</developers>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<!-- 只在编译和测试时生效 -->
+			<scope>provided</scope>
+		</dependency>
+
+
+	</dependencies>
+	<build>
+		<finalName>mvnweb01</finalName>
+		<plugins>
+			<plugin>
+			 	<groupId>org.apache.tomcat.maven</groupId>
+			    <artifactId>tomcat7-maven-plugin</artifactId>
+			    <version>2.2</version>
+				<!-- 
+					<groupId>org.eclipse.jetty</groupId> 
+					<artifactId>jetty-maven-plugin</artifactId> 
+					<version>9.4.8.v20171121</version> 
+				-->
+				<executions>
+					<execution>
+						<!-- 打包完成后执行jetty:run -->
+						<phase>package</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<!-- 设置中文 -->
+					<locales>zh_CN</locales>
+				</configuration>
+		  	</plugin>
+		</plugins>		
+	</build>
+
+</project>
